@@ -1,0 +1,32 @@
+﻿@model AucklandSchool.Models.StudentDetailVM
+
+<h2>Student Details</h2>
+
+<h4><b>First Name:</b> @Model.StudentFirstName</h4>
+<h4><b>Last Name:</b> @Model.StudentLastName</h4>
+<h4><b>Gender:</b> @Model.StudentGender</h4>
+@{
+    if (Model.SubjectList.Count() == 0)
+    {
+        <h4><b>This student has not enrolled in any subjects</b></h4>
+    }
+    else
+    {
+        if (Model.SubjectList[0] == null)
+        {
+            <h4><b>This student has not enrolled in any subjects</b></h4>
+        }
+        else
+        {
+            <h4><b>Subject(s):</b></h4>
+            foreach (var item in Model.SubjectList)
+            {
+                <h5><a href="@Url.Action("Details", "Subject", new { id = item.Id}, null)">@item.Name</a></h5>
+            }
+        }
+
+    }
+}
+
+
+

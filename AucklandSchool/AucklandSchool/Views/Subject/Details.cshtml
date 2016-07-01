@@ -1,0 +1,33 @@
+﻿@model AucklandSchool.Models.SubjectDetailVM
+
+<h2>Subject Details</h2>
+@{
+    if (Model.Teacher == null )
+    {
+        <h3>@Model.SubjectName has not been taught by any teachers</h3>
+    }
+    else
+    {
+        <h3>@Model.SubjectName is taught by <a href="@Url.Action("Details", "Teacher", new { id = Model.Teacher.Id}, null)">@Model.Teacher.FirstName @Model.Teacher.LastName</a></h3>
+    }
+}
+
+@{
+    if (Model.StudentList.Count() == 0)
+    {
+        <h4>@Model.SubjectName has no enrolment</h4>
+    }
+    else
+    {
+        <h4><b>List of enrolled students:</b></h4>
+
+        foreach (var item in Model.StudentList)
+        {
+            <div class="row">
+                <div class="col-md-4">
+                    <h4><a href="@Url.Action("Details", "Student", new { id = item.Id}, null)">@item.FirstName @item.LastName</a></h4>
+                </div>
+            </div>
+        }
+    }
+}

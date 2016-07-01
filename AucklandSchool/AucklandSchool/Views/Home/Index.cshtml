@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Auckland School</h1>
+    <p>This simple application implements Create, Read, Update, and Delete functionalities.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <input type="button" value="Subject List" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Subject", null)'" />
+        <input type="button" value="Teacher List" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Teacher", null)'" />
+        <input type="button" value="Student List" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Student", null)'" />
+</div>
+</div>
